@@ -25,20 +25,21 @@ ekf_filter_node_odom:
                   true,  true,  true,
                   false, false, false,
                   false, false, false]    
-
+    odom0_nodelay: true
     odom0_queue_size: 10
     odom0_differential: false
     odom0_relative: false
 
-    odom1: zed/zed_node/odom
-    odom1_config: [true, true, true,
-                  true, true, true,
-                  false,  false,  false,
-                  false, false, false,
-                  false, false, false]
-    odom1_queue_size: 10
-    odom1_differential: false
-    odom1_relative: true
+    # Commented out for now 11/14/2025
+    # odom1: zed/zed_node/odom
+    # odom1_config: [true, true, true,
+    #               true, true, true,
+    #               false,  false,  false,
+    #               false, false, false,
+    #               false, false, false]
+    # odom1_queue_size: 10
+    # odom1_differential: false
+    # odom1_relative: true
 
     # imu0: imu/data_raw
     # imu0_config: [false, false, false,
@@ -52,6 +53,7 @@ ekf_filter_node_odom:
                   false, false, false,
                   true,  true,  true,
                   true,  true,  true]
+    imu0_nodelay: false
     imu0_differential: false  # If using a real robot you might want to set this to true, since usually absolute measurements from real imu's are not very accurate
     imu0_relative: false
     imu0_queue_size: 10
@@ -65,17 +67,17 @@ ekf_filter_node_odom:
     #               true,  true,  true,
     #               true,  true,  true]
 
-    # CONFIG 2
-    imu1: zed/zed_node/imu/data
-    imu1_config: [false, false, false,
-                  false,  false,  false,
-                  false, false, false,
-                  true,  true,  true,
-                  true,  true,  true]
-    imu1_differential: false  # If using a real robot you might want to set this to true, since usually absolute measurements from real imu's are not very accurate
-    imu1_relative: false
-    imu1_queue_size: 10
-    imu1_remove_gravitational_acceleration: true
+    # CONFIG 2 Commented out 11/14/2025 to test only 1 source
+    # imu1: zed/zed_node/imu/data
+    # imu1_config: [false, false, false,
+    #               false,  false,  false,
+    #               false, false, false,
+    #               true,  true,  true,
+    #               true,  true,  true]
+    # imu1_differential: false  # If using a real robot you might want to set this to true, since usually absolute measurements from real imu's are not very accurate
+    # imu1_relative: false
+    # imu1_queue_size: 10
+    # imu1_remove_gravitational_acceleration: true
 
     use_control: false
 
@@ -127,16 +129,17 @@ ekf_filter_node_map:
     odom0_queue_size: 10
     odom0_differential: false
     odom0_relative: true
-
-    odom1: zed/zed_node/odom
-    odom1_config: [true, true, true,
-                  true, true, true,
-                  false,  false,  false,
-                  false, false, false,
-                  false, false, false]
-    odom1_queue_size: 10
-    odom1_differential: false
-    odom1_relative: true
+    
+    # Commented out 11/14/2025 to test 1 odom source 
+    # odom1: zed/zed_node/odom
+    # odom1_config: [true, true, true,
+    #               true, true, true,
+    #               false,  false,  false,
+    #               false, false, false,
+    #               false, false, false]
+    # odom1_queue_size: 10
+    # odom1_differential: false
+    # odom1_relative: true
 
     odom2: odometry/gps
     odom2_config: [true,  true,  false,
@@ -159,17 +162,18 @@ ekf_filter_node_map:
     imu0_queue_size: 10
     imu0_remove_gravitational_acceleration: true
 
-    imu1: zed/zed_node/imu/data
-    imu1_config: [false, false, false,
-                  true,  true,  false,
-                  false, false, false,
-                  true,  true,  true,
-                  true,  true,  true]
+    # Commented Out 11/14/2025 
+    # imu1: zed/zed_node/imu/data
+    # imu1_config: [false, false, false,
+    #               true,  true,  false,
+    #               false, false, false,
+    #               true,  true,  true,
+    #               true,  true,  true]
     
-    imu1_differential: false  # If using a real robot you might want to set this to true, since usually absolute measurements from real imu's are not very accurate
-    imu1_relative: false
-    imu1_queue_size: 10
-    imu1_remove_gravitational_acceleration: true
+    # imu1_differential: false  # If using a real robot you might want to set this to true, since usually absolute measurements from real imu's are not very accurate
+    # imu1_relative: false
+    # imu1_queue_size: 10
+    # imu1_remove_gravitational_acceleration: true
 
     use_control: false
 
